@@ -1,25 +1,21 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="pt">
-    <head>
-        <title>Django Livraria</title>
-    </head>
-    <body>
-        <p>Seja bem vindo!</p>
-        <p>Boas compras</p>
-
+{% extends 'livraria/base.html' %}
+{% block content %}
+    <table class="table">
+        <h1>Lista de livros</h1>
         {% for livro in livros %}
             Nome: {{ livro.nome }}<br/>
             Código: {{ livro.codigo }}<br/>
             Ano: {{ livro.ano }}<br/>
+
+            <a href="{% url 'detalhar_livro' id=livro.id %}">
+                <img height="300" width="200" src="{{ livro.imagem.url }}">
+            </a>
             Valor: {{ livro.valor }}<br/>
-            <img height="300" width="200" src="{{ livro.imagem.url }}">
             Autores: <br/>
             {% for nome in livro.autor.all %}
                 {{ nome }}<br/>
             {% endfor %}
         <br>
         {% endfor %}
-
-    </body>
-</html>
+    </table>
+{% endblock %}

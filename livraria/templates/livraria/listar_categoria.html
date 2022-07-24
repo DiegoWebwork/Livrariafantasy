@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-        <title>Django Livraria</title>
-    </head>
-    <body>
+{% extends 'livraria/base.html' %}
+{% block content %}
         <h3>Lista das nossas Categorias</h3>
 
         {% for categoria in categorias %}
@@ -12,5 +8,4 @@
 
         {% endfor %}
 
-    </body>
-</html>
+{% endblock %}
