@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <title>Django Livraria</title>
+    </head>
+    <body>
+        <p>Seja bem vindo!</p>
+        <p>Boas compras</p>
+
+        {% for livro in livros %}
+            Nome: {{ livro.nome }}<br/>
+            Código: {{ livro.codigo }}<br/>
+            Ano: {{ livro.ano }}<br/>
+            Valor: {{ livro.valor }}<br/>
+            <img height="300" width="200" src="{{ livro.imagem.url }}">
+            Autores: <br/>
+            {% for nome in livro.autor.all %}
+                {{ nome }}<br/>
+            {% endfor %}
+        {% endfor %}
+
+    </body>
+</html>
